@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './login-style';
 
 type LoginSuccessMessage = 'SUCCESS'
 type LoginFailMessage = 'FAIL'
@@ -19,6 +20,19 @@ const getUserInfo = async (): Promise<{ username: string } | null> => {
 }
 
 const LoginWithMockAPI = () => {
+  const [formData, setFormData] = React.useState({
+    username: '',
+    password: '',
+  })
+
+  const handleInput = (event: React.FormEvent<HTMLInputElement>) => {
+    const {name, value} = event.currentTarget
+    setFormData({
+      ...formData,
+      [name]: value,
+    })
+  }
+
   const loginSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -32,7 +46,23 @@ const LoginWithMockAPI = () => {
       Login with Mock API
     </h1>
     <form onSubmit={loginSubmitHandler}>
-      {/* TODO: 여기에 username과 password를 입력하는 input을 추가하세요. 제출을 위해 button도 추가하세요. */}
+      <p>Username:</p>
+      <input
+      name='username'
+      type='text'
+      placeholder='abcd'
+      value={formData.username}
+      onChange={handleInput}
+      />
+      <p>Password:</p>
+      <input
+      name='password'
+      type='password'
+      placeholder='******'
+      value={formData.password}
+      onChange={handleInput}
+      />
+      <Button type='submit'>Submit</Button>
     </form>
     <div>
       <h2>
