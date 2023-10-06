@@ -9,6 +9,36 @@ interface LoginResponse {
   token: string
 }
 
+interface UserInfo {
+  name: string
+}
+
+interface User {
+  username: string,
+  password: string,
+  userInfo: UserInfo
+}
+
+const users: User[] = [
+  {
+    username: 'blue',
+    password: '1234',
+    userInfo: { name: 'blueStragglr' }
+  },
+  {
+    username: 'white',
+    password: '1234',
+    userInfo: { name: 'whiteDwarf' }
+  },
+  {
+    username: 'red',
+    password: '1234',
+    userInfo: { name: 'redGiant' }
+  },
+]
+
+const _secret: string = '1234qwer!@#$'
+
 const login = async (username: string, password: string): Promise<LoginResponse | null> => {
   // TODO: 올바른 username, password를 입력하면 {message: 'SUCCESS', token: (원하는 문자열)} 를 반환하세요.
   return null
