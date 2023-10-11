@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from './login-style';
 
 type LoginSuccessMessage = 'SUCCESS'
 type LoginFailMessage = 'FAIL'
@@ -92,7 +91,7 @@ const LoginWithMockAPI = () => {
       value={formData.password}
       onChange={handleInput}
       />
-      <Button type='submit'>Submit</Button>
+      <button type='submit'>Submit</button>
     </form>
     <div>
       <h2>
